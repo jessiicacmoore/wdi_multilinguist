@@ -78,3 +78,12 @@ class Multilinguist:
     json_response = json.loads(response.text)
     return json_response['translationText']
 
+class MathGenius(Multilinguist):
+  def report_total(self, numbers):
+    return self.say_in_local_language("The total is") + " " + str(sum(numbers))
+
+me = MathGenius()
+print(me.report_total([23,45,676,34,5778,4,23,5465]))
+
+me.travel_to("Italy")
+print(me.report_total([12,34,56,789]))  # Il totale è 891
